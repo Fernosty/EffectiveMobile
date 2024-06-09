@@ -28,13 +28,7 @@ export class UserController {
             const user = await this.service.addUser(addUserDto);
             res.send(user);
         } catch (e) {
-            if ((e as { code: string }).code === 'ER_DUP_ENTRY') {
-                res.status(400).send({
-                    error: { message: 'User already exists' },
-                });
-            } else {
-                res.status(500).send({ error: { message: 'Internal server error' } });
-            }
+            res.status(500).send({ error: { message: 'Error: ' + (e as Error).message } });
         }
     };
 
@@ -56,7 +50,7 @@ export class UserController {
             }
             res.send(user);
         } catch (e) {
-            res.status(500).send({ error: { message: 'Internal server error' } });
+            res.status(500).send({ error: { message: `Error: ${(e as Error).message}` } });
         }
     };
 

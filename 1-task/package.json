@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon dotenv/config",
+    "dev": "npm i && nodemon dotenv/config",
     "seed": "node -r tsconfig-paths/register -r ts-node/register src/database/init.seeds.ts",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
@@ -16,6 +16,7 @@
   "dependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/uuid": "^9.0.8",
+    "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
